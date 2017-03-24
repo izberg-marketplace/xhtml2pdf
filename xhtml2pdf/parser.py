@@ -655,20 +655,7 @@ def pisaParser(src, context, default_css="", xhtml=False, encoding=None, xml_out
             src = src.encode(encoding)
         src = pisaTempFile(src, capacity=context.capacity)
 
-    # Test for the restrictions of html5lib
-    if encoding:
-        # Workaround for html5lib<0.11.1
-        if hasattr(inputstream, "isValidEncoding"):
-            if encoding.strip().lower() == "utf8":
-                encoding = "utf-8"
-            if not inputstream.isValidEncoding(encoding):
-                log.error("%r is not a valid encoding e.g. 'utf8' is not valid but 'utf-8' is!", encoding)
-        else:
-            if inputstream.codecName(encoding) is None:
-                log.error("%r is not a valid encoding", encoding)
-    document = parser.parse(
-        src,
-        encoding=encoding)
+    document = parser.parse(src)
 
     if xml_output:
         if encoding:
