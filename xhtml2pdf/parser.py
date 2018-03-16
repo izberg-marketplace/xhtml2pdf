@@ -14,7 +14,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-from html5lib import treebuilders, inputstream
+from html5lib import treebuilders  #, inputstream
 from xhtml2pdf.default import TAGS, STRING, INT, BOOL, SIZE, COLOR, FILE
 from xhtml2pdf.default import BOX, POS, MUST, FONT
 from xhtml2pdf.util import getSize, getBool, toList, getColor, getAlign
